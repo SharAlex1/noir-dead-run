@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>NOIR: Dead Run</title>
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0b0b0b">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<link rel="apple-touch-icon" href="icons/icon-180.png">
+<meta name="apple-mobile-web-app-title" content="NOIR: Dead Run">
+</head>
+<body>
+<canvas id="game"></canvas>
+
+<!-- UI -->
+<div id="hud">
+  <div id="left">
+    <div class="stat">♥ <span id="hp">100</span></div>
+    <div class="stat">☠ <span id="kills">0</span></div>
+  </div>
+  <div id="center">
+    <div id="message">NOIR: DEAD RUN</div>
+  </div>
+  <div id="right">
+    <div class="stat">⟲ Wave <span id="wave">1</span></div>
+    <div class="stat">🔫 <span id="weapon">Pistol</span></div>
+  </div>
+</div>
+
+<!-- On-screen controls for phones -->
+<div id="controls">
+  <div class="row">
+    <button id="btnLeft" class="btn">◀︎</button>
+    <button id="btnRight" class="btn">▶︎</button>
+    <button id="btnJump" class="btn">⤒</button>
+    <button id="btnShoot" class="btn">●</button>
+    <button id="btnPause" class="btn">Ⅱ</button>
+  </div>
+</div>
+
+<div id="startOverlay" class="overlay">
+  <div class="panel">
+    <h1>NOIR: Dead Run</h1>
+    <p>Side-scrolling survival. Pick up weapons. Survive waves of shambling nightmares.</p>
+    <ul>
+      <li><b>Move</b>: A / D or ◀︎ ▶︎</li>
+      <li><b>Jump</b>: W or ⤒ / Space</li>
+      <li><b>Shoot</b>: J or ●</li>
+      <li><b>Pause</b>: P or Ⅱ</li>
+    </ul>
+    <button id="btnStart" class="big">Start</button>
+  </div>
+</div>
+
+<script src="game.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('./service-worker.js');
+  });
+}
+</script>
+</body>
+</html>

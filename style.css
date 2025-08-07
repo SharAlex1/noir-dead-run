@@ -1,0 +1,28 @@
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:#0b0b0b;color:#e6e6e6;font-family:system-ui,Segoe UI,Roboto,Helvetica,Arial,sans-serif;overflow:hidden}
+#game{position:fixed;inset:0;image-rendering:pixelated;touch-action:none}
+#hud{position:fixed;top:0;left:0;right:0;display:flex;justify-content:space-between;padding:8px 10px;font-weight:600;pointer-events:none;text-shadow:0 1px 0 #0008}
+#hud .stat{margin:2px 8px;opacity:.9}
+#hud #center{position:absolute;left:50%;transform:translateX(-50%);top:8px}
+#hud #message{letter-spacing:.2em;font-weight:800;opacity:.25}
+.overlay{position:fixed;inset:0;background:#000a;display:flex;align-items:center;justify-content:center;backdrop-filter: blur(2px)}
+.overlay .panel{background:#111;border:1px solid #333;box-shadow:0 0 40px #000 inset, 0 0 40px #000;max-width:520px;padding:20px;border-radius:6px}
+.overlay h1{margin-top:0}
+.overlay .big{width:100%;padding:12px 18px;font-size:18px;font-weight:800;background:#1a1a1a;border:1px solid #444;color:#fff}
+#controls{position:fixed;bottom:8px;left:0;right:0;display:flex;justify-content:center}
+#controls .row{display:flex;gap:8px}
+#controls .btn{width:56px;height:56px;border-radius:50%;border:1px solid #333;background:#161616;color:#e6e6e6;font-size:20px}
+#controls .btn:active{transform:scale(.96);background:#101010}
+@media (min-width: 900px){
+  #controls{display:none}
+}
+/* Noir CRT/grain effect */
+body::after{
+  content:"";
+  position:fixed;inset:0;pointer-events:none;
+  background:
+    repeating-linear-gradient(0deg, #0000, #0000 2px, #0002 3px),
+    radial-gradient(ellipse at center, #fff1 0%, #0000 60%, #0008 100%);
+  mix-blend-mode:overlay;
+  opacity:.35;
+}
